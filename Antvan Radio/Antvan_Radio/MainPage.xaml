@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Antvan_Radio"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             x:Class="Antvan_Radio.MainPage"
+             BackgroundColor="Black"
+             Title="ANTVAN RADIO">
+    <ContentPage.Content>
+        <ScrollView>
+            <RelativeLayout>
+                <RelativeLayout  Padding="5,0,0,0">
+                    <Image x:Name ="advertising" HeightRequest="60" Source="https://radio.black-star.ru/upload/iblock/94b/94bec177dfc932403a359b5d62d1976c.jpg">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="Advertising_Image" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Label x:Name ="name_song" Text = "{Binding Song}" FontAttributes="Bold" FontSize="15" TextColor="White"
+            HorizontalTextAlignment="Center" RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=65}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+                    <Label x:Name ="name_author" Text = "{Binding Author}" FontAttributes="Bold" FontSize="13" TextColor="White"
+            HorizontalTextAlignment="Center" 
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=90}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" />
+                    <controls:CircleImage x:Name ="photo" Source="{Binding Icon}" WidthRequest = "250" HeightRequest = "250"
+               HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center" Aspect = "AspectFill"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=115}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}"/>
+                    <Image x:Name ="button_play" Source="play.png" WidthRequest = "100" HeightRequest = "100" 
+               HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=190}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnButtonPlay" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </RelativeLayout>
+                <RelativeLayout  Padding="5,0,0,0" HeightRequest="50"
+                             RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=380}"
+                             RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}">
+                    <Image Source="instagram.png" WidthRequest = "40" HeightRequest = "40"
+               HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center" Aspect = "AspectFill"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor= 1, Constant=-45}"/>
+                    <Image Source="youtube.png" WidthRequest = "40" HeightRequest = "40" 
+               HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center" Aspect = "AspectFill"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=5}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor= 1, Constant=45}"/>
+                </RelativeLayout>
+                <RelativeLayout  Padding="5,0,0,0"
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=420}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1 }">
+                    <Image Source="headset.png" WidthRequest = "340" HeightRequest = "80" 
+               HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center"
+               RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0}"
+               RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1 }"/>
+                    <Label x:Name ="name_listen" HorizontalTextAlignment="Center" 
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Y, Factor=0, Constant=30}"
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=1}" >
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span x:Name="listen1" Text ="0      0      0       0      2      2      "  ForegroundColor = "White" FontAttributes="Bold"/>
+                                <Span x:Name="listen2" Text ="5      7      8"  ForegroundColor = "Red" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </RelativeLayout>
+            </RelativeLayout>
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

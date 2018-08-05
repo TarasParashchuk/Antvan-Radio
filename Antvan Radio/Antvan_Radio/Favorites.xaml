@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Antvan_Radio.Favorites"
+             BackgroundColor="Black"
+             Title="ИЗБРАННОЕ">
+    <ContentPage.Content>
+        <RelativeLayout BackgroundColor="Transparent">
+            <ListView x:Name="FavoritesList"
+              HasUnevenRows="True"
+              ItemsSource="{Binding Items}"
+                        RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor = 1}"
+                        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= 1, Constant = -60}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <RelativeLayout BackgroundColor="Transparent" HeightRequest="90">
+                                <Image Source="{Binding Icon}" WidthRequest="70" HeightRequest="70" Margin = "10, 10, 0, 10" HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center" Aspect = "AspectFill"/>
+                                <Label Text="{Binding Song}" FontSize="13" Margin="90,25,0,0" TextColor = "White" />
+                                <Label Text="{Binding Author}" FontSize="11" Margin="90,50,0,0" TextColor = "White"/>
+                                <Image Source="pay.png" WidthRequest="120" HeightRequest="50"
+                            HorizontalOptions = "LayoutOptions.EndAndExpand"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width , Constant = -120}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .22}"/>
+                            </RelativeLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <RelativeLayout BackgroundColor="Black" HeightRequest="60" Padding="0, 0, 20, 0"        
+                            RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor = 1}"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor = 0}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor = 1, Constant = -60}">
+                <RelativeLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoMain"/>
+                </RelativeLayout.GestureRecognizers>
+                <Image x:Name="control_photo" Source="{Binding Control_Icon}" WidthRequest="48" HeightRequest="48"
+                            HorizontalOptions = "LayoutOptions.Center" VerticalOptions = "LayoutOptions.Center" Aspect = "AspectFill"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor= .01}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .1}"/>
+                <Label x:Name="control_song" Text="{Binding Control_Song}" FontSize="12" HorizontalOptions = "StartAndExpand" TextColor = "White" Margin="60, 0, 0, 0" 
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .17}"/>
+                <Label x:Name="control_author"  Text="{Binding Control_Author}" FontSize="10" HorizontalOptions = "StartAndExpand" TextColor = "White" Margin="60, 0, 0, 0" 
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .55}"/>
+                <Image x:Name="Favorite_Button" Source="favorite.png" WidthRequest="20" HeightRequest="20"
+                            HorizontalOptions = "LayoutOptions.EndAndExpand"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor= 1, Constant = -60}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .33}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TouchImage"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Image x:Name="control_playarrow" Source="playarrow.png" WidthRequest="20" HeightRequest="20"
+                            HorizontalOptions = "LayoutOptions.EndAndExpand"
+                            RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width,  Factor= 1, Constant = -25}"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height,  Factor= .33}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnButtonPlay" />
+                    </Image.GestureRecognizers>
+                </Image>
+            </RelativeLayout>
+        </RelativeLayout >
+    </ContentPage.Content>
+</ContentPage>
